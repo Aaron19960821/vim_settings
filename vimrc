@@ -1,7 +1,6 @@
-## This File is created by Yuchen Wong
-@Copyright Yuchen Wong 2018
-set nocompatible              " be iMproved, required
-filetype on                  " required
+set nocompatible
+filetype on
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
@@ -43,33 +42,30 @@ let g:OmniSharp_host = "http://localhost:2000"
 let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
-set guifont=Monaco:h13       " 字体 && 字号
-set tabstop=2                " 设置tab键的宽度
-set shiftwidth=2             " 换行时行间交错使用4个空格
-set autoindent               " 自动对齐
-set backspace=2              " 设置退格键可用
-set cindent shiftwidth=2     " 自动缩进4空格
-set smartindent              " 智能自动缩进
-set ai!                      " 设置自动缩进
-set nu!                      " 显示行号
-set showmatch               " 显示括号配对情况
-set mouse=a                  " 启用鼠标
-set ruler                    " 右下角显示光标位置的状态行
-set incsearch                " 查找book时，当输入/b时会自动找到
-set hlsearch                 " 开启高亮显示结果
-set incsearch                " 开启实时搜索功能
-set nowrapscan               " 搜索到文件两端时不重新搜索
-set nocompatible             " 关闭兼容模式
-set vb t_vb=                 " 关闭提示音
-set hidden                   " 允许在有未保存的修改时切换缓冲区
-set list                     " 显示Tab符，使用一高亮竖线代替
-set listchars=tab:\|\ ,
-set grepprg =grep\ -nH\ $*
+"Some basic settings"
+set guifont=Monaco:h14
+set tabstop=2
+set shiftwidth=2
+set backspace=2
+set cindent
+set smartindent
+set number
+set showmatch
+set ruler
+set incsearch
+set autoindent
+set mouse=a
+set hlsearch
+set nowrapscan
+set hidden
+set list
+set listchars=tab:\|\
 set cursorline
-
-"set the color scheme of vim
-colorscheme molokai
 set background=dark
+set encoding=utf-8
+set fenc=utf-8
+set fileencodings=utf-8,gbk,cp936,latin-1
+colorscheme molokai
  
 syntax enable                " 打开语法高亮
 syntax on                    " 开启文件类型侦测
@@ -77,41 +73,18 @@ filetype indent on           " 针对不同的文件类型采用不同的缩进�
 filetype plugin on           " 针对不同的文件类型加载对应的插件
 filetype plugin indent on    " 启用自动补全
  
- 
-if has("gui_running")
-    au GUIEnter * simalt ~x  " 窗口启动时自动最大化
-    winpos 20 20            " 指定窗口出现的位置，坐标原点在屏幕左上角
-    set lines=20 columns=90 " 指定窗口大小，lines为高度，columns为宽度
-    set guioptions-=m       " 隐藏菜单栏
-    set guioptions-=T       " 隐藏工具栏
-    set guioptions-=L       " 隐藏左侧滚动条
-    set guioptions-=r       " 隐藏右侧滚动条
-    set guioptions-=b       " 隐藏底部滚动条
-    set showtabline=0       " 隐藏Tab栏
-endif
- 
-set fenc=utf-8
-set encoding=utf-8
-set fileencodings=utf-8,gbk,cp936,latin-1
- 
+"Auto match"
 :inoremap ( ()<ESC>i
- 
 :inoremap ) <c-r>=ClosePair(')')<CR>
- 
 :inoremap { {}<ESC>i
- 
 :inoremap } <c-r>=ClosePair('}')<CR>
- 
 :inoremap [ []<ESC>i
- 
 :inoremap ] <c-r>=ClosePair(']')<CR>
- 
 :inoremap " ""<ESC>i
- 
 :inoremap ' ''<ESC>i
- 
 :inoremap ` ``<ESC>i
  
+"find the closest pair in the same line"
 function ClosePair(char)
     if getline('.')[col('.') - 1] == a:char
         return "\<Right>"
@@ -184,13 +157,6 @@ imap <c-r> <ESC>:call RunCode()<CR>
 vmap <c-r> <ESC>:call RunCode()<CR>
 
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java,*.swift,*.cs exec ":call SetTitle()"
-autocmd BufNewFile *.py exec ":call SetPythonTitle()"
-
-function SetPythonTitle()
-	call setline(1, "## This File is created by Yuchen Wong")
-	call append(line("."), "## @Copyright Yuchen Wong 2018")
-endfunc
- 
 
 func SetTitle() 
     if &filetype == 'sh' 

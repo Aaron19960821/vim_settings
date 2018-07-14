@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Applications/MacVim.app/Contents/Resources/vim'
+let g:netrw_dirhist_2='/Users/yuchenwang/Desktop'
+let g:netrw_dirhist_3='/Users/yuchenwang/Documents/2048fun/__pycache__'
+let g:netrw_dirhist_4='/Users/yuchenwang/Documents/aaronblog/public/2017/02'
