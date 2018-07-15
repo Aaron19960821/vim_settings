@@ -1,8 +1,8 @@
 set nocompatible
-filetype on
+filetype off "required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 " alternatively, pass a path where Vundle should install plugins
 "
@@ -59,7 +59,7 @@ set hlsearch
 set nowrapscan
 set hidden
 set list
-set listchars=tab:\|\
+set listchars=tab:\|\ 
 set cursorline
 set background=dark
 set encoding=utf-8
@@ -83,6 +83,7 @@ filetype plugin indent on    " 启用自动补全
 :inoremap " ""<ESC>i
 :inoremap ' ''<ESC>i
 :inoremap ` ``<ESC>i
+:inoremap <c-v> <shift-insert>
  
 "find the closest pair in the same line"
 function ClosePair(char)
@@ -93,10 +94,10 @@ function ClosePair(char)
     endif
 endf
  
-" TxtBrowser          高亮TXT文本文件
+" TxtBrowser         
 au BufRead,BufNewFile *.txt setlocal ft=txt
  
-" :AuthorInfoDetect   自动添加作者、时间等信息，本质是NERD_commenter && authorinfo的结合
+"Insert author name to the source file"
 let g:vimrc_author='Yuchen Wang'
 let g:vimrc_email='wyc8094@gmail.com'
 let g:vimrc_homepage='aaron19960821.github.io'
@@ -114,6 +115,8 @@ func! CompileCode()
             exec "!gcc -Wall  -g %<.c -o %<"
         elseif &filetype == "cpp"
             exec "!g++ -Wall  -g %<.cpp -o %<"
+        elseif &filetype == "cc"
+            exec "!g++ -Wall  -g %<.cc -o %<"
         elseif &filetype == "java"
             exec "!javac %<.java"
         elseif &filetype == "haskell"
@@ -177,7 +180,7 @@ func SetTitle()
         call append(line(".")+4, " ************************************************************************/") 
         call append(line(".")+5, "")
     endif
-    if &filetype == 'cpp'
+    if &filetype == 'cpp' || &filetype == 'cc'
         call append(line(".")+6, "#include<iostream>")
         call append(line(".")+7, "using namespace std;")
         call append(line(".")+8, "")
