@@ -11,7 +11,7 @@ Plug 'tpope/vim-fugitive'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  set pyxversion=2
+  set pyxversion=3
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
@@ -51,6 +51,9 @@ augroup END
 
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
+
+Plug 'chromium/vim-codesearch'
+let g:codesearch_source_root = '/home/yucwang/ruby/src/'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required

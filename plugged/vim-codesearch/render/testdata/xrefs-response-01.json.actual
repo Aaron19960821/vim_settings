@@ -1,0 +1,61 @@
+This file contains the rendered output per line and its associated metadata.
+
+Lines that begin with a line number contains (after the '|') the contents that
+will be inserted into the vim buffer at that line. The immediately following
+line contains an object representing associated metadata.
+-------------------------------------------------------------------------------
+
+001|^Cat{Definition:
+   |{}
+002|}Cat_  ^F{src/net/http/http_basic_state.cc}F_
+   |{'j': ('src/net/http/http_basic_state.cc', 0, 7)}
+003|    20:  ^>{HttpBasicState::HttpBasicState(std::unique_ptr<ClientSocketHandle> connection,}>_
+   |{'j': ('src/net/http/http_basic_state.cc', 19, 9)}
+004|    20:  ^>{HttpBasicState::HttpBasicState(std::unique_ptr<ClientSocketHandle> connection,}>_
+   |{'j': ('src/net/http/http_basic_state.cc', 19, 9)}
+005|
+   |{}
+006|^Cat{Declaration:
+   |{}
+007|}Cat_  ^F{src/net/http/http_basic_state.h}F_
+   |{'j': ('src/net/http/http_basic_state.h', 0, 7)}
+008|    31:  ^>{  HttpBasicState(std::unique_ptr<ClientSocketHandle> connection,}>_
+   |{'j': ('src/net/http/http_basic_state.h', 30, 9)}
+009|
+   |{}
+010|^Cat{References:
+   |{}
+011|}Cat_  ^F{src/net/http/http_basic_state_unittest.cc}F_
+   |{'j': ('src/net/http/http_basic_state_unittest.cc', 0, 7)}
+012|    21:  ^>{  const HttpBasicState state(base::WrapUnique(handle), true /* using_proxy */,}>_
+   |{'j': ('src/net/http/http_basic_state_unittest.cc', 20, 9)}
+013|    29:  ^>{  const HttpBasicState state(std::make_unique<ClientSocketHandle>(),}>_
+   |{'j': ('src/net/http/http_basic_state_unittest.cc', 28, 9)}
+014|    39:  ^>{  HttpBasicState state(base::WrapUnique(handle), false, false);}>_
+   |{'j': ('src/net/http/http_basic_state_unittest.cc', 38, 9)}
+015|    47:  ^>{  HttpBasicState state(std::make_unique<ClientSocketHandle>(), false, false);}>_
+   |{'j': ('src/net/http/http_basic_state_unittest.cc', 46, 9)}
+016|    54:  ^>{  HttpBasicState state(std::make_unique<ClientSocketHandle>(), false, false);}>_
+   |{'j': ('src/net/http/http_basic_state_unittest.cc', 53, 9)}
+017|    64:  ^>{  HttpBasicState state(std::make_unique<ClientSocketHandle>(), false, false);}>_
+   |{'j': ('src/net/http/http_basic_state_unittest.cc', 63, 9)}
+018|    74:  ^>{  HttpBasicState state(std::make_unique<ClientSocketHandle>(), use_proxy,}>_
+   |{'j': ('src/net/http/http_basic_state_unittest.cc', 73, 9)}
+019|    85:  ^>{  HttpBasicState state(std::make_unique<ClientSocketHandle>(), use_proxy,}>_
+   |{'j': ('src/net/http/http_basic_state_unittest.cc', 84, 9)}
+020|
+   |{}
+021|  ^F{src/net/http/http_basic_stream.cc}F_
+   |{'j': ('src/net/http/http_basic_stream.cc', 0, 2)}
+022|    20:  ^>{    : state_(std::move(connection),}>_
+   |{'j': ('src/net/http/http_basic_stream.cc', 19, 9)}
+023|
+   |{}
+024|  ^F{src/net/websockets/websocket_basic_handshake_stream.cc}F_
+   |{'j': ('src/net/websockets/websocket_basic_handshake_stream.cc', 0, 2)}
+025|    175:  ^>{      state_(std::move(connection),}>_
+   |{'j': ('src/net/websockets/websocket_basic_handshake_stream.cc', 174, 10)}
+026|
+   |{}
+027|
+   |{}
