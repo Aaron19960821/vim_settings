@@ -1,0 +1,159 @@
+{
+    "xref_search_response": [
+        {
+            "status": 0, 
+            "estimated_total_type_count": [
+                {
+                    "count": 2, 
+                    "type": "DEFINITION", 
+                    "type_id": "DEFINITION"
+                }, 
+                {
+                    "count": 1, 
+                    "type": "DECLARATION", 
+                    "type_id": "DECLARATION"
+                }, 
+                {
+                    "count": 10, 
+                    "type": "REFERENCE", 
+                    "type_id": "REFERENCE"
+                }
+            ], 
+            "search_result": [
+                {
+                    "file": {
+                        "name": "src/net/http/http_basic_state.cc", 
+                        "package_name": "chromium"
+                    }, 
+                    "match": [
+                        {
+                            "line_text": "HttpBasicState::HttpBasicState(std::unique_ptr<ClientSocketHandle> connection,", 
+                            "line_number": 20, 
+                            "type_id": "DEFINITION", 
+                            "type": "DEFINITION", 
+                            "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_basic_state.cc#%40547%3A561%40UV8Xn%2F7Mig1SenttuQRLCFwGKvhudSAKChBQlhAbhxg%3D%23chromium%23src%2Fnet%2Fhttp%2Fhttp_basic_state.cc"
+                        }, 
+                        {
+                            "line_text": "HttpBasicState::HttpBasicState(std::unique_ptr<ClientSocketHandle> connection,", 
+                            "line_number": 20, 
+                            "type_id": "DEFINITION", 
+                            "type": "DEFINITION", 
+                            "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_basic_state.cc#%40547%3A561%40UV8Xn%2F7Mig1SenttuQRLCFwGKvhudSAKChBQlhAbhxg%3D%23chromium%23src%2Fnet%2Fhttp%2Fhttp_basic_state.cc"
+                        }
+                    ]
+                }, 
+                {
+                    "file": {
+                        "name": "src/net/http/http_basic_state.h", 
+                        "package_name": "chromium"
+                    }, 
+                    "match": [
+                        {
+                            "line_text": "  HttpBasicState(std::unique_ptr<ClientSocketHandle> connection,", 
+                            "line_number": 31, 
+                            "type_id": "DECLARATION", 
+                            "type": "DECLARATION", 
+                            "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_basic_state.h#%40796%3A810%40SrzFHJz9ps5vos5RaeTIOzu84UtYhBfMFCBdSAof%2F0E%3D%23chromium%23src%2Fnet%2Fhttp%2Fhttp_basic_state.h"
+                        }
+                    ]
+                }, 
+                {
+                    "file": {
+                        "name": "src/net/http/http_basic_state_unittest.cc", 
+                        "package_name": "chromium"
+                    }, 
+                    "match": [
+                        {
+                            "line_text": "  const HttpBasicState state(base::WrapUnique(handle), true /* using_proxy */,", 
+                            "line_number": 21, 
+                            "type_id": "REFERENCE", 
+                            "type": "REFERENCE", 
+                            "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_basic_state_unittest.cc#%40737%3A742"
+                        }, 
+                        {
+                            "line_text": "  const HttpBasicState state(std::make_unique<ClientSocketHandle>(),", 
+                            "line_number": 29, 
+                            "type_id": "REFERENCE", 
+                            "type": "REFERENCE", 
+                            "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_basic_state_unittest.cc#%401105%3A1110"
+                        }, 
+                        {
+                            "line_text": "  HttpBasicState state(base::WrapUnique(handle), false, false);", 
+                            "line_number": 39, 
+                            "type_id": "REFERENCE", 
+                            "type": "REFERENCE", 
+                            "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_basic_state_unittest.cc#%401563%3A1568"
+                        }, 
+                        {
+                            "line_text": "  HttpBasicState state(std::make_unique<ClientSocketHandle>(), false, false);", 
+                            "line_number": 47, 
+                            "type_id": "REFERENCE", 
+                            "type": "REFERENCE", 
+                            "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_basic_state_unittest.cc#%401860%3A1865"
+                        }, 
+                        {
+                            "line_text": "  HttpBasicState state(std::make_unique<ClientSocketHandle>(), false, false);", 
+                            "line_number": 54, 
+                            "type_id": "REFERENCE", 
+                            "type": "REFERENCE", 
+                            "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_basic_state_unittest.cc#%402129%3A2134"
+                        }, 
+                        {
+                            "line_text": "  HttpBasicState state(std::make_unique<ClientSocketHandle>(), false, false);", 
+                            "line_number": 64, 
+                            "type_id": "REFERENCE", 
+                            "type": "REFERENCE", 
+                            "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_basic_state_unittest.cc#%402570%3A2575"
+                        }, 
+                        {
+                            "line_text": "  HttpBasicState state(std::make_unique<ClientSocketHandle>(), use_proxy,", 
+                            "line_number": 74, 
+                            "type_id": "REFERENCE", 
+                            "type": "REFERENCE", 
+                            "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_basic_state_unittest.cc#%402933%3A2938"
+                        }, 
+                        {
+                            "line_text": "  HttpBasicState state(std::make_unique<ClientSocketHandle>(), use_proxy,", 
+                            "line_number": 85, 
+                            "type_id": "REFERENCE", 
+                            "type": "REFERENCE", 
+                            "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_basic_state_unittest.cc#%403406%3A3411"
+                        }
+                    ]
+                }, 
+                {
+                    "file": {
+                        "name": "src/net/http/http_basic_stream.cc", 
+                        "package_name": "chromium"
+                    }, 
+                    "match": [
+                        {
+                            "line_text": "    : state_(std::move(connection),", 
+                            "line_number": 20, 
+                            "type_id": "REFERENCE", 
+                            "type": "REFERENCE", 
+                            "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_basic_stream.cc#%40685%3A691"
+                        }
+                    ]
+                }, 
+                {
+                    "file": {
+                        "name": "src/net/websockets/websocket_basic_handshake_stream.cc", 
+                        "package_name": "chromium"
+                    }, 
+                    "match": [
+                        {
+                            "line_text": "      state_(std::move(connection),", 
+                            "line_number": 175, 
+                            "type_id": "REFERENCE", 
+                            "type": "REFERENCE", 
+                            "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/websockets/websocket_basic_handshake_stream.cc#%406051%3A6057"
+                        }
+                    ]
+                }
+            ], 
+            "from_kythe": true, 
+            "grok_total_number_of_results": 0
+        }
+    ]
+}

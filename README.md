@@ -9,20 +9,24 @@ To build this vim setting is very simple:
 First, clone it into your local computer:  
 
 ```
-https://github.com/Aaron19960821/vim_settings ~/.vim
+git clone https://github.com/Aaron19960821/vim_settings ~/.vim
 ```
 
-Then open the vim, install the plugins:
-
+We use vim-plug to manage all plugins we install, please update the plugins
+with the following command:
 ```
-:PluginInstall
-```
-
-YCM may not be enabled after this procedure, we can re-compile it with the following command:
-
-```
-cd ~/.vim/bundle/YouCompleteMe
-python install.py
+:PlugInstall
 ```
 
-Any questions, feel free to ask me~~
+Currently we use **cquery** for code completion. To install cquery, please follow this way:
+```
+git clone --recursive https://github.com/cquery-project/cquery.git
+cd cquery
+git submodule update --init
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=release -DCMAKE_EXPORT_COMPILE_COMMANDS=YES
+cmake --build .
+cmake --build . --target install
+```
+
+

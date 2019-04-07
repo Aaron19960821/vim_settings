@@ -1,0 +1,39 @@
+{
+    "call_graph_response": [
+        {
+            "node": {
+                "call_scope_range": {
+                    "start_line": 0, 
+                    "end_line": 0, 
+                    "start_column": 0, 
+                    "end_column": 0
+                }, 
+                "call_site_range": {
+                    "start_line": 0, 
+                    "end_line": 0, 
+                    "start_column": 0, 
+                    "end_column": 0
+                }, 
+                "snippet": {
+                    "text": {}, 
+                    "first_line_number": 0, 
+                    "match_reason": {
+                        "blame": false, 
+                        "content": false, 
+                        "filename_lineno": false, 
+                        "scoped_symbol": false, 
+                        "filename": false
+                    }
+                }, 
+                "node_kind": "FUNCTION", 
+                "signature": "kythe://chromium?lang=c%2B%2B?path=src/net/http/http_auth_handler_negotiate_unittest.cc#K4ikCIS9mEQ2mHfCRGMW5LQewkaTRwkdAaRECIIEiX8%3D", 
+                "override": false
+            }, 
+            "is_from_kythe": true, 
+            "return_code": 1, 
+            "results_offset": 0, 
+            "estimated_total_number_results": 0, 
+            "is_call_graph": true
+        }
+    ]
+}

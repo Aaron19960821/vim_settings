@@ -1,0 +1,35 @@
+This file contains the rendered output per line and its associated metadata.
+
+Lines that begin with a line number contains (after the '|') the contents that
+will be inserted into the vim buffer at that line. The immediately following
+line contains an object representing associated metadata.
+-------------------------------------------------------------------------------
+
+001|^Cat{Definition:
+   |{}
+002|}Cat_  ^F{src/net/http/http_server_properties_manager.cc}F_
+   |{'j': ('src/net/http/http_server_properties_manager.cc', 0, 7)}
+003|    1284:  ^>{void HttpServerPropertiesManager::OnHttpServerPropertiesChanged() {}>_
+   |{'j': ('src/net/http/http_server_properties_manager.cc', 1283, 11)}
+004|    1284:  ^>{void HttpServerPropertiesManager::OnHttpServerPropertiesChanged() {}>_
+   |{'j': ('src/net/http/http_server_properties_manager.cc', 1283, 11)}
+005|
+   |{}
+006|^Cat{Declaration:
+   |{}
+007|}Cat_  ^F{src/net/http/http_server_properties_manager.h}F_
+   |{'j': ('src/net/http/http_server_properties_manager.h', 0, 7)}
+008|    204:  ^>{  void OnHttpServerPropertiesChanged();}>_
+   |{'j': ('src/net/http/http_server_properties_manager.h', 203, 10)}
+009|
+   |{}
+010|^Cat{References:
+   |{}
+011|}Cat_  ^F{src/net/http/http_server_properties_manager.cc}F_
+   |{'j': ('src/net/http/http_server_properties_manager.cc', 0, 7)}
+012|    121:  ^>{      &HttpServerPropertiesManager::OnHttpServerPropertiesChanged,}>_
+   |{'j': ('src/net/http/http_server_properties_manager.cc', 120, 10)}
+013|
+   |{}
+014|
+   |{}
