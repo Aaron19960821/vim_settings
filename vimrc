@@ -1,49 +1,65 @@
 set nocompatible
 filetype off "required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
-" alternatively, pass a path where Vundle should install plugins
-"
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plug 'scrooloose/nerdtree'
 
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/nerdtree'
-Plugin 'toyamarinyon/vim-swift'
-Bundle 'gmarik/vundle'
-Plugin 'artur-shaik/vim-javacomplete2'
+"Plugin for git
+Plug 'tpope/vim-fugitive'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-Plugin 'user/L9', {'name': 'newL9'}
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  set pyxversion=2
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
+let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
+
+"Language client
+Plug 'autozimu/LanguageClient-neovim', {
+      \ 'branch': 'next',
+      \ 'do': 'bash install.sh',
+      \ }
+let g:LanguageClient_serverCommands = {
+      \ 'cpp': ['~/Developments/cquery/build/release/bin/cquery',
+      \ '--log-file=/tmp/cq.log',
+      \ '--record=/tmp/cq.log',
+      \ '--init={"cacheDirectory": "/tmp/cquery/", "completion": {"filterAndSort": false}}']
+      \}
+nn <silent> <M-.> :call LanguageClient_textDocument_definition()<cr>
+nn <silent> <M-,> :call LanguageClient_textDocument_references()<cr>
+nn <f2> :call LanguageClient_textDocument_rename()<cr>
+nn <leader>ji :Denite documentSymbol<cr>
+nn <leader>jI :Denite workspaceSymbol<cr>
+" Search for workspace symbols approximately
+nn ,la :call LanguageClient_workspace_symbol({'query':input('workspace/symbol ')})<cr>
+" Send textDocument/hover when cursor moves.
+augroup LanguageClient_config
+  au!
+  au BufEnter * let b:Plugin_LanguageClient_started = 0
+  au User LanguageClientStarted setl signcolumn=yes
+  au User LanguageClientStarted let b:Plugin_LanguageClient_started = 1
+  au User LanguageClientStopped setl signcolumn=auto
+  au User LanguageClientStopped let b:Plugin_LanguageClient_stopped = 0
+  au CursorMoved * if b:Plugin_LanguageClient_started | call LanguageClient_textDocument_hover() | endif
+augroup END
+
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-
-let g:OmniSharp_host = "http://localhost:2000"
-let g:syntastic_cs_checkers = ['syntax', 'semantic', 'issues']
-let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 "Some basic settings"
 set guifont=Monaco:h14
+"Do not use tab in vim editting"
+set expandtab
 set tabstop=2
 set shiftwidth=2
 set backspace=2
@@ -67,11 +83,11 @@ set fenc=utf-8
 set fileencodings=utf-8,gbk,cp936,latin-1
 colorscheme molokai
  
-syntax enable                " 打开语法高亮
-syntax on                    " 开启文件类型侦测
-filetype indent on           " 针对不同的文件类型采用不同的缩进格式
-filetype plugin on           " 针对不同的文件类型加载对应的插件
-filetype plugin indent on    " 启用自动补全
+syntax enable               
+syntax on                    
+filetype indent on           
+filetype plugin on           
+filetype plugin indent on
  
 "Auto match"
 :inoremap ( ()<ESC>i
@@ -102,10 +118,10 @@ let g:vimrc_author='Yuchen Wang'
 let g:vimrc_email='wyc8094@gmail.com'
 let g:vimrc_homepage='aaron19960821.github.io'
  
-" nt                  打开NERDTree [非插入模式]
+" nt                 
 map <C-l> :NERDTree<CR>
  
-" tl                  打开Taglist [非插入模式]
+" tl                 
 map tl :Tlist<CR><c-l>
  
  
@@ -202,17 +218,3 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 
 autocmd BufEnter *tex set sw =2
 let g:tex_flavor ='latex'
-
-
-"进行Tlist的设置
-"TlistUpdate可以更新tags
-map <F3> :silent! Tlist<CR> "按下F3就可以呼出了
-let Tlist_Ctags_Cmd='ctags' "因为我们放在环境变量里，所以可以直接执行
-let Tlist_Use_Right_Window=1 "让窗口显示在右边，0的话就是显示在左边
-let Tlist_Show_One_File=0 "让taglist可以同时展示多个文件的函数列表，如果想只有1个，设置为1
-let Tlist_File_Fold_Auto_Close=1 "非当前文件，函数列表折叠隐藏
-let Tlist_Exit_OnlyWindow=1 "当taglist是最后一个分割窗口时，自动推出vim
-let Tlist_Process_File_Always=0 "是否一直处理tags.1:处理;0:不处理。不是一直实时更新tags，因为没有必要
-let Tlist_Inc_Winwidth=0
-
-
