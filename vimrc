@@ -181,28 +181,8 @@ vmap <c-r> <ESC>:call RunCode()<CR>
 autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java,*.swift,*.cs exec ":call SetTitle()"
 
 func SetTitle() 
-    if &filetype == 'sh' 
-        call setline(1,"\#########################################################################") 
-        call append(line("."), "\# File Name: ".expand("%")) 
-        call append(line(".")+1, "\# Author: Yuchen Wang") 
-        call append(line(".")+2, "\# mail: wyc8094@gmail.com") 
-        call append(line(".")+3, "\# Created Time: ".strftime("%c")) 
-        call append(line(".")+4, "\#########################################################################") 
-        call append(line(".")+5, "\#!/bin/bash") 
-        call append(line(".")+6, "") 
-    else 
-        call setline(1, "/*************************************************************************") 
-        call append(line("."), "    > File Name: ".expand("%")) 
-        call append(line(".")+1, "    > Author: Yuchen Wang") 
-        call append(line(".")+2, "    > Mail: wyc8094@gmail.com ") 
-        call append(line(".")+3, "    > Created Time: ".strftime("%c")) 
-        call append(line(".")+4, " ************************************************************************/") 
-        call append(line(".")+5, "")
-    endif
-    if &filetype == 'cpp' || &filetype == 'cc'
-        call append(line(".")+6, "#include<iostream>")
-        call append(line(".")+7, "using namespace std;")
-        call append(line(".")+8, "")
+    if &filetype == 'cpp' || &filetype == 'cc' || &filetype == 'java' || &filetype == 'h'
+        call setline(1, "/* Copyright 2019 The Microsoft Edge authors */")
     endif
     if &filetype == 'c'
         call append(line(".")+6, "#include<stdio.h>")
@@ -210,14 +190,6 @@ func SetTitle()
     endif
     autocmd BufNewFile * normal G
 endfunc 
-
-autocmd FileType python set omnifunc=pythoncomplete#Complete  
-autocmd FileType javascrīpt set omnifunc=javascrīptcomplete#CompleteJS  
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags  
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS  
-autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags  
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP  
-autocmd FileType c set omnifunc=ccomplete#Complete 
 
 autocmd BufEnter *tex set sw =2
 let g:tex_flavor ='latex'
