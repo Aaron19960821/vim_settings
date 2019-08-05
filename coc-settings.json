@@ -1,0 +1,17 @@
+{
+  "languageserver": {
+    "cquery": {
+      "command": "/home/yucwang/development/cquery/build/release/bin/cquery",
+      "args": ["--log-file=/tmp/cq.log"],
+      "filetypes": ["c", "cpp", "cc", "h", "hpp"],
+      "rootPatterns": ["compile_commands.json", ".vim", ".git"],
+      "initializationOptions": {
+        "cacheDirectory": "/tmp/cquery"
+      }
+    },
+    "kotlin-lspserver": {
+      "command": "/home/yucwang/development/KotlinLanguageServer/server/build/scripts/kotlin-language-server",
+      "filetypes": ["kt"]
+    }
+  }
+}
