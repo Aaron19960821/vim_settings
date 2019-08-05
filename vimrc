@@ -3,6 +3,9 @@ filetype off "required
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'udalov/kotlin-vim'
+Plug 'leafgarland/typescript-vim'
+
 Plug 'scrooloose/nerdtree'
 
 "Plugin for git
@@ -20,34 +23,7 @@ let g:deoplete#enable_at_startup = 1
 let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
 let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
 
-"Language client
-Plug 'autozimu/LanguageClient-neovim', {
-      \ 'branch': 'next',
-      \ 'do': 'bash install.sh',
-      \ }
-let g:LanguageClient_serverCommands = {
-      \ 'cpp': ['~/Developments/cquery/build/release/bin/cquery',
-      \ '--log-file=/tmp/cq.log',
-      \ '--record=/tmp/cq.log',
-      \ '--init={"cacheDirectory": "/tmp/cquery/", "completion": {"filterAndSort": false}}']
-      \}
-nn <silent> <M-.> :call LanguageClient_textDocument_definition()<cr>
-nn <silent> <M-,> :call LanguageClient_textDocument_references()<cr>
-nn <f2> :call LanguageClient_textDocument_rename()<cr>
-nn <leader>ji :Denite documentSymbol<cr>
-nn <leader>jI :Denite workspaceSymbol<cr>
-" Search for workspace symbols approximately
-nn ,la :call LanguageClient_workspace_symbol({'query':input('workspace/symbol ')})<cr>
-" Send textDocument/hover when cursor moves.
-augroup LanguageClient_config
-  au!
-  au BufEnter * let b:Plugin_LanguageClient_started = 0
-  au User LanguageClientStarted setl signcolumn=yes
-  au User LanguageClientStarted let b:Plugin_LanguageClient_started = 1
-  au User LanguageClientStopped setl signcolumn=auto
-  au User LanguageClientStopped let b:Plugin_LanguageClient_stopped = 0
-  au CursorMoved * if b:Plugin_LanguageClient_started | call LanguageClient_textDocument_hover() | endif
-augroup END
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
