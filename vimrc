@@ -29,6 +29,9 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 
 Plug 'chromium/vim-codesearch'
+
+Plug 'tikhomirov/vim-glsl'
+
 let g:codesearch_source_root = '/home/yucwang/ruby/src/'
 
 " All of your Plugins must be added before the following line
@@ -57,6 +60,7 @@ set list
 set listchars=tab:\|\ 
 set cursorline
 set background=dark
+set t_Co=256
 set encoding=utf-8
 set fenc=utf-8
 set fileencodings=utf-8,gbk,cp936,latin-1
@@ -124,8 +128,8 @@ func! CompileCode()
             exec "!python %<.py"
         elseif &filetype == "ruby"
             exec "!ruby %<.rb"
-	elseif &filetype == "cs"
-	    exec "!mcs %<.cs -debug"
+        elseif &filetype == "cs"
+            exec "!mcs %<.cs -debug"
         endif
 endfunc
  
