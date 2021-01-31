@@ -1,7 +1,7 @@
 {
   "languageserver": {
-    "cquery": {
-      "command": "/Users/apple/LspServer/cquery/build/release/bin/cquery",
+    "ccls": {
+      "command": "/path/to/your/ccls/binary",
       "args": ["--log-file=/tmp/cq.log"],
       "filetypes": ["c", "cpp", "cc", "h", "hpp"],
       "rootPatterns": ["compile_commands.json", ".vim", ".git"],

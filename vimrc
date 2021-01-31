@@ -3,19 +3,13 @@ filetype off "required
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'udalov/kotlin-vim'
-Plug 'leafgarland/typescript-vim'
-
 Plug 'scrooloose/nerdtree'
 
 "Plugin for git
 Plug 'tpope/vim-fugitive'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
+if !has('nvim')
   set pyxversion=3
-  Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
@@ -24,9 +18,6 @@ let $NVIM_PYTHON_LOG_FILE="/tmp/nvim_log"
 let $NVIM_PYTHON_LOG_LEVEL="DEBUG"
 
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
 
 Plug 'chromium/vim-codesearch'
 
